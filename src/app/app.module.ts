@@ -1,20 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EncabezadoComponent } from './encabezado/encabezado.component';
-import { PieComponent } from './pie/pie.component';
+import { AdminComponent } from './admin/admin.component';
+import { InicioComponent } from './inicio/inicio.component';
+import { NavegacionComponent } from './navegacion/navegacion.component';
+import { CatalogosComponent } from './admin/catalogos/catalogos.component';
+import { TransaccionesComponent } from './admin/transacciones/transacciones.component';
+import { EmpresaComponent } from './admin/catalogos/empresa/empresa.component';
+import { CrearEmpresaComponent } from './admin/catalogos/empresa/crear-empresa/crear-empresa.component';
+import { ListarEmpresaComponent } from './admin/catalogos/empresa/listar-empresa/listar-empresa.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    EncabezadoComponent,
-    PieComponent
+    AppComponent,    
+    AdminComponent,
+    InicioComponent,    
+    NavegacionComponent,
+    CatalogosComponent,
+    TransaccionesComponent,
+    EmpresaComponent,
+    CrearEmpresaComponent,
+    ListarEmpresaComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

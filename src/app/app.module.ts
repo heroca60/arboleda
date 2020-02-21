@@ -13,6 +13,9 @@ import { TransaccionesComponent } from './admin/transacciones/transacciones.comp
 import { EmpresaComponent } from './admin/catalogos/empresa/empresa.component';
 import { CrearEmpresaComponent } from './admin/catalogos/empresa/crear-empresa/crear-empresa.component';
 import { ListarEmpresaComponent } from './admin/catalogos/empresa/listar-empresa/listar-empresa.component';
+import { ComprasComponent } from './admin/transacciones/compras/compras.component';
+import { CrearComprasComponent } from './admin/transacciones/compras/crear-compras/crear-compras.component';
+import { ListarComprasComponent } from './admin/transacciones/compras/listar-compras/listar-compras.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { ListarEmpresaComponent } from './admin/catalogos/empresa/listar-empresa
     TransaccionesComponent,
     EmpresaComponent,
     CrearEmpresaComponent,
-    ListarEmpresaComponent
+    ListarEmpresaComponent,
+    ComprasComponent,
+    CrearComprasComponent,
+    ListarComprasComponent
   ],
   imports: [
     BrowserModule,

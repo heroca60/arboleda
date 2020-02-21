@@ -1,0 +1,72 @@
+<p>
+    <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+        Nuevo registro
+    </button>
+</p>
+<div id="collapseExample" [ngbCollapse]="isCollapsed">
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="seriefactura">Serie:</label>
+                        <input type="text" class="form-control" id="seriefactura" placeholder="AB-5567">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="numerofactura">Número de factura:</label>
+                        <input type="text" class="form-control" id="numerofactura" placeholder="4443221">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="nombreproveedor">Nombre del proveedor:</label>
+                    <input type="text" class="form-control" id="nombreproveedor" placeholder="La Curacao S.A.">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="totalcompra">Monto total:</label>
+                        <input type="text" class="form-control" id="totalcompra" placeholder="3500.75">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Fecha de compra:</label>
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model"
+                                        ngbDatepicker [footerTemplate]="footerTemplate" #d="ngbDatepicker">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()"
+                                            type="button"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <ng-template #footerTemplate>
+                            <hr class="my-0">
+                            <button class="btn btn-primary btn-sm m-2 float-left"
+                                (click)="model = today; d.close()">Today</button>
+                            <button class="btn btn-secondary btn-sm m-2 float-right" (click)="d.close()">Close</button>
+                        </ng-template>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Observaciones</span>
+                        </div>
+                        <textarea class="form-control" aria-label="Observaciones"></textarea>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary" (click)="nuevoRegistro()">Guardar</button>
+                <br>
+                <br>
+                <!--Inicia el espacio de mensajes-->
+                <ngb-alert *ngIf="successMessage" type={{messageType}} (close)="successMessage = null">
+                    {{ successMessage }}
+                </ngb-alert>
+
+            </form>
+        </div>
+    </div>
+</div>

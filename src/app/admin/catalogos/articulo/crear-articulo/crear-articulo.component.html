@@ -1,0 +1,32 @@
+<p>
+    <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+        Nuevo registro
+    </button>
+</p>
+<div id="collapseExample" [ngbCollapse]="isCollapsed">
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="nombrearticulo">Artículo:</label>
+                        <input type="text" class="form-control" id="nombrearticulo" placeholder="Televisor">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="descripcionarticulo">Descripción:</label>
+                        <input type="text" class="form-control" id="descripcionarticulo" placeholder="58' Marca OLG">
+                    </div>
+                </div>
+             
+                <button type="button" class="btn btn-primary" (click)="nuevoRegistro()">Guardar</button>
+                <br>
+                <br>
+                <!--Inicia el espacio de mensajes-->                
+                <ngb-alert *ngIf="successMessage" type={{messageType}} (close)="successMessage = null">{{ successMessage }}
+                </ngb-alert>
+                
+            </form>
+        </div>
+    </div>
+</div>

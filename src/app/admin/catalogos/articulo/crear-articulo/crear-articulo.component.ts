@@ -3,11 +3,11 @@ import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-crear-empresa',
-  templateUrl: './crear-empresa.component.html',
-  styleUrls: ['./crear-empresa.component.css']
+  selector: 'app-crear-articulo',
+  templateUrl: './crear-articulo.component.html',
+  styleUrls: ['./crear-articulo.component.css']
 })
-export class CrearEmpresaComponent implements OnInit {
+export class CrearArticuloComponent implements OnInit {
   public isCollapsed = true;
   private _success = new Subject<string>();
 
@@ -15,7 +15,6 @@ export class CrearEmpresaComponent implements OnInit {
   staticAlertClosed = false;
   successMessage: string;
   messageType: string = "success";
-
   constructor() { }
 
   ngOnInit(): void {

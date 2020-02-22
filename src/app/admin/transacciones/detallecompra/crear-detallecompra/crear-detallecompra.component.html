@@ -1,0 +1,43 @@
+<p>
+    <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+        Nuevo registro
+    </button>
+</p>
+<div id="collapseExample" [ngbCollapse]="isCollapsed">
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <label for="idcompra">Id de la compra:</label>
+                    <input type="number" class="form-control" id="idcompra" placeholder="11234">
+                </div>
+                <div class="form-group">
+                    <label for="idarticulo">Artículo</label>
+                    <select class="form-control" id="idarticulo">
+                      <option>[1] Televisor 52' marca OLG</option>
+                      <option>[2] Televisor 45' marca Samsung</option>                      
+                    </select>
+                  </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="seriefactura">Precio unitario:</label>
+                        <input type="text" class="form-control" id="seriefactura" placeholder="5850">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="numerofactura">Cantidad:</label>
+                        <input type="number" class="form-control" id="numerofactura" placeholder="10">
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary" (click)="nuevoRegistro()">Guardar</button>
+                <br>
+                <br>
+                <!--Inicia el espacio de mensajes-->
+                <ngb-alert *ngIf="successMessage" type={{messageType}} (close)="successMessage = null">
+                    {{ successMessage }}
+                </ngb-alert>
+
+            </form>
+        </div>
+    </div>
+</div>

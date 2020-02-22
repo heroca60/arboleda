@@ -16,6 +16,12 @@ import { ListarEmpresaComponent } from './admin/catalogos/empresa/listar-empresa
 import { ComprasComponent } from './admin/transacciones/compras/compras.component';
 import { CrearComprasComponent } from './admin/transacciones/compras/crear-compras/crear-compras.component';
 import { ListarComprasComponent } from './admin/transacciones/compras/listar-compras/listar-compras.component';
+import { ArticuloComponent } from './admin/catalogos/articulo/articulo.component';
+import { CrearArticuloComponent } from './admin/catalogos/articulo/crear-articulo/crear-articulo.component';
+import { ListarArticuloComponent } from './admin/catalogos/articulo/listar-articulo/listar-articulo.component';
+import { DetallecompraComponent } from './admin/transacciones/detallecompra/detallecompra.component';
+import { CrearDetallecompraComponent } from './admin/transacciones/detallecompra/crear-detallecompra/crear-detallecompra.component';
+import { ListarDetalleCompraComponent } from './admin/transacciones/detallecompra/listar-detalle-compra/listar-detalle-compra.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +36,13 @@ import { ListarComprasComponent } from './admin/transacciones/compras/listar-com
     ListarEmpresaComponent,
     ComprasComponent,
     CrearComprasComponent,
-    ListarComprasComponent
+    ListarComprasComponent,
+    ArticuloComponent,
+    CrearArticuloComponent,
+    ListarArticuloComponent,
+    DetallecompraComponent,
+    CrearDetallecompraComponent,
+    ListarDetalleCompraComponent
   ],
   imports: [
     BrowserModule,

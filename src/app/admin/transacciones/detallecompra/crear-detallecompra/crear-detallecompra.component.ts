@@ -1,22 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import {NgbCalendar, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-crear-empresa',
-  templateUrl: './crear-empresa.component.html',
-  styleUrls: ['./crear-empresa.component.css']
+  selector: 'app-crear-detallecompra',
+  templateUrl: './crear-detallecompra.component.html',
+  styleUrls: ['./crear-detallecompra.component.css']
 })
-export class CrearEmpresaComponent implements OnInit {
-  public isCollapsed = true;
+export class CrearDetallecompraComponent implements OnInit {
+  public isCollapsed = false;
   private _success = new Subject<string>();
 
-  //Variables para el mensaje de transacción
+  model: NgbDateStruct;
+  today = this.calendar.getToday();
+
   staticAlertClosed = false;
   successMessage: string;
   messageType: string = "success";
 
-  constructor() { }
+  constructor(private calendar: NgbCalendar) { }
 
   ngOnInit(): void {
     setTimeout(() => this.staticAlertClosed = true, 20000);

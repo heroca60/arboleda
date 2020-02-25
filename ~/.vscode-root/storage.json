@@ -1397,7 +1397,21 @@
             }
         }
     },
-    "theme": "vs",
-    "themeBackground": "#ffffff",
-    "pickerWorkingDir": "/home/hcalderon/Documents/Angular"
+    "theme": "vs-dark",
+    "themeBackground": "#1e1e1e",
+    "pickerWorkingDir": "/home/hcalderon/Documents/Angular",
+    "windowsState": {
+        "lastActiveWindow": {
+            "folder": "file:///home/hcalderon/Documents/Angular/arboleda",
+            "backupPath": "/home/hcalderon/Documents/Angular/arboleda/~/.vscode-root/Backups/c4db17e174e15af323a06b406c5158c7",
+            "uiState": {
+                "mode": 0,
+                "x": 171,
+                "y": 58,
+                "width": 1024,
+                "height": 710
+            }
+        },
+        "openedWindows": []
+    }
 }

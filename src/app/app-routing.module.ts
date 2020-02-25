@@ -6,9 +6,13 @@ import { EmpresaComponent } from './admin/catalogos/empresa/empresa.component';
 import { ComprasComponent } from './admin/transacciones/compras/compras.component';
 import { ArticuloComponent } from './admin/catalogos/articulo/articulo.component';
 import { DetallecompraComponent } from './admin/transacciones/detallecompra/detallecompra.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
+  {
+    path: 'login', component: LoginComponent, pathMatch: 'full'
+  },
   {
     path: '', component: InicioComponent
   },
@@ -16,7 +20,7 @@ const routes: Routes = [
     path: 'admin', component: AdminComponent
   },
   {
-    path: 'admin/empresa', component: EmpresaComponent
+    path: 'admin/hotel', component: EmpresaComponent
   },
   {
     path: 'admin/compras', component: ComprasComponent

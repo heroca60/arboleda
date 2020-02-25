@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,12 @@ import { ListarArticuloComponent } from './admin/catalogos/articulo/listar-artic
 import { DetallecompraComponent } from './admin/transacciones/detallecompra/detallecompra.component';
 import { CrearDetallecompraComponent } from './admin/transacciones/detallecompra/crear-detallecompra/crear-detallecompra.component';
 import { ListarDetalleCompraComponent } from './admin/transacciones/detallecompra/listar-detalle-compra/listar-detalle-compra.component';
+import { LoginComponent } from './login/login.component';
+
+// HttpClient module for RESTful API
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
@@ -42,13 +49,16 @@ import { ListarDetalleCompraComponent } from './admin/transacciones/detallecompr
     ListarArticuloComponent,
     DetallecompraComponent,
     CrearDetallecompraComponent,
-    ListarDetalleCompraComponent
+    ListarDetalleCompraComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

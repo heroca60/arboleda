@@ -1,12 +1,14 @@
 import { DecimalPipe } from '@angular/common';
 import { Component, QueryList, ViewChildren } from '@angular/core';
 import { Observable } from 'rxjs';
-import {NgbProgressbarConfig} from '@ng-bootstrap/ng-bootstrap';
+import { NgbProgressbarConfig } from '@ng-bootstrap/ng-bootstrap';
 
 import { Country } from '../../../../interface/country';
 import { CountryService } from '../../../../service/country.service';
 import { NgbdSortableHeader, SortEvent } from '../../../../datos/sortable.directive';
 import { ConfiguracionService } from 'src/app/service/configuracion.service';
+import { HotelService } from 'src/app/shared/services/hotel.service';
+
 
 @Component({
   selector: 'app-listar-empresa',
@@ -27,8 +29,12 @@ export class ListarEmpresaComponent {
   ie: String
 
 
-  constructor(public service: CountryService, config: NgbProgressbarConfig ,
-    private _configuracion: ConfiguracionService) {
+  constructor(
+    public service: CountryService,
+    config: NgbProgressbarConfig,
+    private _configuracion: ConfiguracionService,
+    private _service: HotelService
+  ) {
     this.countries$ = service.countries$;
     this.total$ = service.total$;
 
@@ -45,6 +51,16 @@ export class ListarEmpresaComponent {
     this.ia = _configuracion.iconoActualizar
     this.ie = _configuracion.iconoEliminar
 
+  }
+
+  ngOnInit() {
+    this._service.getElementos()
+    .subscribe
+    (
+      data => {
+        console.log(data);
+      }
+    )
   }
 
   onSort({ column, direction }: SortEvent) {

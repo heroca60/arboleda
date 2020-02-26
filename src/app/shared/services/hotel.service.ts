@@ -3,15 +3,19 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Hotel } from '../class/hotel';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HotelService {
 
-  apiURL = 'http://localhost:3000';
+  //apiURL = 'https://jsonplaceholder.typicode.com/posts/1/';
 
-  constructor(private http: HttpClient) { }
+
+  constructor(
+    private _http: HttpClient
+  ) { }
 
   /*========================================
       CRUD Methods for consuming RESTful API
@@ -24,15 +28,23 @@ export class HotelService {
     })
   }
 
+  //***************GET**************************
+  getElementos(): Observable<any> {
+    return this._http.get(environment.apiRest + 'hotels');
+  }
+  //********************************************
 
-  // POST
-  postElemento(data: Hotel): Observable<Hotel> {
-    return this.http.post<Hotel>(this.apiURL + '/hotels', JSON.stringify(data), this.httpOptions)
-      .pipe(
+
+  //***************POST*************************
+  postElemento(data: Hotel): Observable<any> {    
+    return this._http.post<Hotel>(environment.apiRest + 'hotels', JSON.stringify(data), this.httpOptions)
+      .pipe
+      (
         retry(1),
         catchError(this.handleError)
       )
   }
+  //********************************************
 
   // Error handling 
   handleError(error: any) {

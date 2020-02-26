@@ -16,7 +16,7 @@ export class CrearEmpresaComponent implements OnInit {
   //Variables para el mensaje de transacción
   staticAlertClosed = false;
   successMessage: string;
-  messageType: string = "success";
+  messageType: string;
 
   //Datos del formulario
   datos: any;
@@ -24,13 +24,13 @@ export class CrearEmpresaComponent implements OnInit {
     //inyectando formulario reactivo para validación y captura de datos
     private formBuilder: FormBuilder,
     //inyectando apiREST
-    private apiRest: HotelService
+    private _apiRest: HotelService
   ) {
     this.datos = this.formBuilder.group({
-      nombre: ['', Validators.required],
-      direccion: ['', Validators.required],
-      representante: ['', Validators.required],
-      estado: ['1']
+      nombrehotel: ['', Validators.required],
+      direccionhotel: ['', Validators.required],
+      representantehotel: ['', Validators.required],
+      estadohotel: [1]
     })
   }
 
@@ -44,13 +44,23 @@ export class CrearEmpresaComponent implements OnInit {
   }
 
   public nuevoRegistro() {
-    console.log(this.datos.value);
     if (this.datos.valid) {
-      console.log(this.datos.value);
-      this.apiRest.postElemento(this.datos.value).subscribe(res => {
-        console.log('Éxito!!');
-      })
-      this._success.next("Registro almacenado exitosamente !!!");
+      this._apiRest.postElemento(this.datos.value)
+        .subscribe
+        (
+          result => {
+            console.log(result.code)
+            if (result.code == null) {
+              this.messageType = "success";
+              this._success.next("Registro almacenado exitosamente !!!");
+            } else {
+              this.messageType = "danger";
+              this._success.next("Ocurrió un error: " + result);
+            }
+          })
+    } else {
+      this.messageType = "warning";
+      this._success.next("Complete los campos obligatorios");
     }
   }
 }

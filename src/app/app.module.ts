@@ -27,6 +27,7 @@ import { LoginComponent } from './login/login.component';
 
 // HttpClient module for RESTful API
 import { HttpClientModule } from '@angular/common/http';
+import { HotelService } from './shared/services/hotel.service';
 
 
 
@@ -60,7 +61,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [HotelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
